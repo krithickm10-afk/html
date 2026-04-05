@@ -32,5 +32,34 @@
             <a href="gallery.html">Gallery</a>
             <a href="contactus.html">Contact_Us</a>
         </div>
+<!DOCTYPE html>
+  <html>
+    <body>
+      <!--Slide Show-->
+      <section>
+        <img class="mySlides" src="tiger.jpg"
+style="height:500px;">
+        <img class="mySlides" src="elephant.jpg"
+style="height:500px;">
+    </section>
+    <script>
+        //Automatic Slideshow - change image every 3 seconds
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("MySlides");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display ="none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 3000);
+        }
+    </script>
+            </body>
+        </html>
       </body>
    </html>
