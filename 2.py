@@ -1,10 +1,13 @@
-#Input a word or sentance 
-string = input("Please enter your own String : ")
+# Program to find HCF/GCD
 
-string2 = ('')
-#loop for printing in reverse 
-for i in string:
-    string2 = i + string2
+# Enter 2 numbers
+numberLargest = int(input("Enter Largest number : "))   
+numberSmallest = int(input("Enter Smallest number : "))
 
-print("\nThe Original String = ", string)
-print("\nThe Reversed String = ", string2)
+# Using Eucliden Algorithms
+while(numberSmallest):
+    numberStore = numberSmallest
+    numberSmallest = numberLargest % numberSmallest
+    numberLargest = numberStore
+
+print("HCF is : " ,numberLargest)
