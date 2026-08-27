@@ -1,10 +1,17 @@
-#Input the value of terms
-n = int(input("Enter the value of terms: "))
+def SieveOfEratosthenes(num):
+    prime = [True for i in range(num+1)]
+    p = 2
+    while (p * p <= num):
+        if (prime[p] == True):
+            for i in range(p * p, num+1, p):
+                prime[i] = False
+        p += 1
 
-sum = 0 #initialise
-i = 1 #initialise
-while i<=n: #loop will run from 1 to n
-    sum = sum+i
-    i = i+1
+    for p in range(2, num+1):
+        if prime[p]:
+            print(p)
 
-print("\nSum =", sum)
+num = int(input("Enter a number"))
+print("Following are the prime numbers smaller")
+print("than or equal to", num)
+SieveOfEratosthenes(num)
