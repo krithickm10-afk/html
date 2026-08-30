@@ -1,14 +1,17 @@
-#take two input from user
-lower = int(input("enter a lower range: "))
-upper = int(input("enter a upper range: "))
+# 03-parity-bits.py
+# Topic: Parity Check and Counting Bits
 
-print("Prime numbers between", lower, "and", upper, "are:")
-#iterate loop from lower limit to upper limit
-for num in range(lower, upper + 1):
-    # all prime numbers are greater than 1
-    if num > 1:
-        for i in range(2, num):
-            if (num % i) == 0:
-                break
-        else:
-            print(num)
+input("Parity - last bit = 0 even,  last bit = 1 odd.  Press Enter ")
+for n in [2, 3, 4, 5, 8, 9]:
+    if n & 1:
+        print("  ", n, "-> odd")
+    else:
+        print("  ", n, "-> even")
+
+n = int(input("Enter a number (try 13 or 7): "))
+input("Count the 1s - watch bits drop off.  Press Enter ")
+temp = n
+while temp > 0:
+    print("  binary:", bin(temp)[2:], "  last bit:", temp & 1)
+    temp >>= 1
+print("  total 1s is in", n, "=", bin(n).count('1'))
