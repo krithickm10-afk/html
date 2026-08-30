@@ -1,15 +1,11 @@
-#Take input of a word
-string = input("Plaese enter your own word : ")
-#Take input of a character
-char = input("Plaese enter your own Character : ")
-i = 0   
-count = 0
-#loop will to find the occurence of character
-while(i < len(string)): #string operation
+# 01-bits-and-binary.py
+# Topic: Bits and Binary Numbers, AND and OR
 
-    if(string[i] == char): #condition 1
-        count = count + 1   
-    i = i + 1
+n = int(input("Enter a number (try 5 or 12): "))
+guess = input("Guess its binary: ")
 
-#Display the result
-print("The total Number of Times ", char,   " has Occured = ", count)
+input("Binary. Press Enter ")
+print("  decimal", n, "-> binary", bin(n)[2:])
+print("  Your guess:", guess)
+
+input("AND - both bits must be 1.")
