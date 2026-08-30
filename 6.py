@@ -1,18 +1,17 @@
-# Take input from the user 
-num =   int(input("Enter a number: "))
+# 01-bits-and-binary.py
+# Topic: Bits and Binary Numbers, AND and OR
 
-# initialise sum
-sum = 0
+n = int(input("Enter a number (try 5 or 12): "))
+guess = input("Guess its binary: ")
 
-# find the sum of the cube of each digit
-temp = num
-while temp > 0:
-    digit = temp % 10
-    sum += digit ** 3
-    temp //= 10
+input("Binary. Press Enter ")
+print("  decimal", n, "-> binary", bin(n)[2:])
+print("  Your guess:", guess)
 
-# display the result 
-if num == sum:
-    print(num,"is an Armstrong number")
-else: 
-    print(num,"is not an Armstrong number")
+input("AND - both bits must be 1. Press Enter ")
+print("  12 =", bin(12)[2:])
+print("  10 =", bin(10)[2:])
+print("  12 & 10 =", 12 & 10)
+
+input("OR - at least one bit must be 1. Press Enter ")
+print("   12 | 10 =", 12 | 10)
