@@ -1,13 +1,16 @@
-#Take input from user 
-rows = int(input("Please Enter the total number of rows  :"))
-number = 1 #initialise by 1
+# 03-mask-and-check.py
+# Topic: Building a Bit Mask, Check if Nth   Bit is Set
 
-print("Floyd's Triangle")
-#outer loop for number of rows
-for i in range(1, rows + 1):
-    #inner loop for number of columns
-    for j in range(1, i + 1):
-        #display result
-        print(number, end = '  ')
-        number = number+1
-    print()
+input("Build a bit mask - one 1 at exactly that position. Press Enter ")
+for k in range(4):
+    mask = 1 << k
+    print("  bit", k, "  mask:", mask, "  binary:", bin(mask)[2:])
+
+n = int(input("Enter a number  (try 42 or 13): "))
+guess = input("Is bit 2 of " + str(n) + " ON? (yes/no): ")
+input("Check if the Nth bit is set - AND with the mask. Press Enter ")
+result = (n >> 2) & 1
+if result:
+    print(" ", n, "  binary:", bin(n)[2:], "  bit 2 is ON your guess:", guess)
+else:
+    print(" ", n, "  binary:", bin(n)[2:], "  bit 2 is OFF your guess:", guess)
