@@ -1,14 +1,15 @@
-import turtle    #importing library
-turtle.Screen().bgcolor("orange")
-turtle.Screen().setup(300,400)
-polygon = turtle.Turtle()#defined variable
+# 02-odd-occuring.py
+# Topic: One Odd-Occuring Number
 
-num_sides = 6 #variables
-side_length = 70
-angle = 360.0 / num_sides
-#iterate loop for total number of side
-for i in range(num_sides):
-    polygon.forward(side_length)
-    polygon.right(angle)
+input("XOR all the numbers - pairs cancel, the odd one stays.  Press Enter ")
+print("  list: [2, 3, 4, 3, 2]")
+print("  odd-occuring:", 2^3^4^3^2)
 
-turtle.done()
+n = int(input("Enter a number (try 7 or 11): "))
+nums = [3 ,n, 5, 3, 5]
+guess = input("Which number in " + str(nums) + " appears once? ")
+result = 0
+for x in nums:
+    result ^= x
+input("XOR cancels pairs - the odd one survives.  Press Enter ")
+print(" list:", nums, "  odd-occuring:", result, "  your guess:", guess)
