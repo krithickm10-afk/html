@@ -1,36 +1,11 @@
-def add(P ,Q):
-    # This function is used for adding two numbers
-    return P + Q
-def subtract(P, Q):
-    # This function is used for subtracting two numbers
-    return P - Q
-def multiply(P, Q):
-    # This function is used for multiplying two numbers
-    return P * Q
-def divide(P, Q):
-    # This function is used for dividing two numbers
-    return P / Q
+# 01-power-set.py
+# Topic: Power Set, Binary Mask as a Subset Selector
 
-# Now we will take inputs from the user
-print("Please select the operation.")
-print("a. Add")
-print("b. Subtract")
-print("c. Multiply")
-print("d. Divide")
+input("A set with elements has 2^n subsets.  Press Enter ")
+print("  3 elements 2^3 =", 2**3, "subsets")
+print("  mask 5 = binary", bin(5)[2:], "  selects positions 0 and 2")
 
-choice = input("Please enter choice (a b/ c/ d):")
-
-num_1 = int (input ("Please enter the first number:"))
-num_2 = int (input ("Please enter the second number:"))
-
-if choice == 'a':
-    print (num_1, "+", num_2, "=", add(num_1, num_2))
-
-elif choice == 'b':
-    print (num_1, "-", num_2, "=", subtract(num_1, num_2))
-
-elif choice == 'c':
-    print (num_1, "*", num_2, "=", multiply(num_1, num_2))
-
-elif choice == 'd':
-    print (num_1, "/", num_2, "=", divide(num_1, num_2))
+n = int(input("Enter number of elements (try 4 or 5): "))
+guess = input("How many subsets does a set of " + str(n) + " elements have? ")
+input("Each element is in or out - 2 choices per element.  Press Enter ")
+print(" ", n, "elements subsets:", 2**n, "  your guess:", guess)
