@@ -1,16 +1,16 @@
-def factorial(x):
-  '''this is a recursive function to find the factorial of an integer'''
+# 01-linear-tail.py
+# Topic: Linear Recursion, Tail Recursion
 
-  if x==0 or x==1:
-      return 1
-  else:
-     #calling function inside a function
-      return x*factorial(x-1)
-  
-#display result
-print(factorial.__doc__)
-print("the factorial  of 0:",factorial(0))
-print("the factorial  of 1:",factorial(1))
-print("the factorial  of 2:",factorial(2))
-print("the factorial  of 5:",factorial(5))  
-print("the factorial  of 10:",factorial(10))
+def tail_sum(n, acc=0):
+    if n == 0:
+        return acc
+    return tail_sum(n - 1, acc + n)
+
+input("Tail recursion - the last action is the recursive call with an accululator.  Press Enter ")
+print("  tail_sum(4) =", tail_sum(4), "  = 4 + 3 + 2 + 1")
+print("  tail_sum(5) =", tail_sum(5), "  = 5 + 4 + 3 + 2 + 1")
+
+n = int(input("Enter a number (try 3 or 6): "))
+guess = input("What is tail_sum(" + str(n) + ")? ")
+input("tail_sum adds n to acc at each step - acc builds as n counts down.  Press Enter ")
+print("  tail_sum(" + str(n) + ") =", tail_sum(n), "  your guess:", guess)
