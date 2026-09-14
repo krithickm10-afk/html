@@ -1,11 +1,17 @@
-#Take user input
-a = input ("Enter a word: ")
-#program to check break keyword
-for i in a: #iterate for loop
-  if (i == 'A'): #condition 1
-  #display result
-    print ("A is found")
-    break #break statement
-  else:
-  #display result
-    print ("A is not found")
+# 02-head-increasing.py
+# Topic: Head Recursion, Increasing-Decreasing
+
+def mirror(n):
+    if n == 0:
+        return 0
+    rest = mirror(n - 1)
+    return rest + 2 * n
+
+input("Head recursion - recurse first  then add 2*n on the way back.  Press Enter ")
+print("  mirror(3) =", mirror(3))
+print("  mirror(4) =", mirror(4))
+
+n = int(input("Enter a number (try 5 or 6): "))
+guess = input("What is mirror(" + str(n) + ")? ")
+input("mirror(n) = mirror(n-1) + 2*n as it unwinds back up.  Press Enter ")
+print("  mirror(" + str(n) + ") =", mirror(n), "  your guess:", guess)
