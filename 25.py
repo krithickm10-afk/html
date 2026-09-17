@@ -1,7 +1,16 @@
-#using a try and except
-try:
-    number = int(input("Enter a number: "))
-    print("The number entered is", number)
-#using value error 
-except ValueError as ex:
-    print("Exception:", ex)
+# 02-list-sum.py
+# Topic: Sorted Check with Recursion, Sum of a List with Recursion
+
+def list_sum(lst):
+    if lst == []:
+        return 0
+    return lst[0] + list_sum(lst[1:])
+
+input("Recursive sum - add head to sum of tail until empty.  Press Enter ")
+print("  list_sum([1, 2, 3]) =", list_sum([1, 2, 3]))
+print("  list_sum([4, 5, 6]) =", list_sum([4, 5, 6]))
+
+lst = [int(x) for x in input("Enter 4 numbers separated by spaces: ").split()]
+guess = input("What is the sum of " + str (lst) + "? ")
+input("list_sum adds head to list is empty.  Press Enter ")
+print("   sum:", list_sum(lst), " your guess:", guess)
