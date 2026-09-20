@@ -1,28 +1,20 @@
-import random #importing random module
+# 02-power-of-4.py
+# Topic: Checking Powers of 4 with Recursion, Two Stopping Conditions
 
-while True: #iterate loop
-    user_action = input("Enter a choice (rock, paper, scissors): ") #take input
-    possible_actions = ["rock", "paper", "scissors"]
-    #using random function
-    computer_action = random.choice(possible_actions)
-    print(f"\nYou chose {user_action}, computer chose {computer_action}.\n")  #display both outputs what is selected by you and computer 
+def is_power4(n):
+    if n <= 0:
+        return False
+    if n == 1:
+        return True
+    if n % 4 == 0:
+        return is_power4(n // 4)
+    return False
 
+input("is_power4 divides by 4 - n==1 returns True  remainder returns False.  Press Enter ")
+print("  is_power4(16) =", is_power4(16))
+print("  is_power4(12) =", is_power4(12))
 
-#conditions to check who won the game
-    if user_action == computer_action:
-        print(f"Both players selected {user_action}. It's a tie!")
-    elif user_action == "rock":
-        if computer_action == "scissors":
-            print("Rock smashes scissors! You win!")
-        else:
-            print("Paper covers rock! You lose.")
-    elif user_action == "paper":
-        if computer_action == "rock":
-            print("Paper covers rock! You win!")
-        else:
-            print("scissors cuts Paper! You lose.")        
-    elif user_action == "scissors":
-        if computer_action == "paper":
-            print("scissors cuts Paper! You win!")
-        else:
-            print("Rock smashes scissors! You lose.")
+n = int(input("Enter a number (try 64 or 48): "))
+guess = input("What is is_power4(" + str(n) + ")? ")
+input("is_power4 has two stops - n==1 is True  remainder or n<=0 is False.  Press Enter ")
+print("  is_power4(" + str(n) + ") =", is_power4(n), "  your guess:", guess)
