@@ -1,16 +1,16 @@
-import random #importing module
-playing = True #initialise
-number = str(random.randint(0,9)) #random in-built function
+# 02-flip-name.py
+# Topic: Reversing a String with Recursion
 
-print("I will generate a number from 0 to 9, and you have to guess the number one digit at at time.")
-print("The game ends when you get 1 hero!")
-#iterate loop till the condition is true
-while playing:
-  guess = input("Give me your best guess! \n")
-  if number == guess:
-    print("You win the game")
-    print("The number was",number)
-    break
-  
-  else:
-    print("Your guess isn't quite right, try again. \n")
+def flip_name(s):
+    if len(s) == 1:
+        return s
+    return flip_name(s[1:]) + s[0]
+
+input("flip_name recurses on s[1:] then attaches s[0] at the end.  Press Enter ")
+print("  flip_name('Maya') =", flip_name('Maya'))
+print("  flip_name('Code') =", flip_name('Code'))
+
+name = input("Enter a name (try 'Riya' or 'Dev'): ")
+guess = input("What is flip_name('" + name + "')? ")
+input("flip_name(s) = flip_name(s[1:]) + s[0]  first character lands last.  Press Enter ")
+print("  flip_name('" + name + "') =", flip_name(name), " your guess:", guess)
