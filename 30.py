@@ -1,13 +1,18 @@
-import math #importing math module
-#using ceil and floor functiom of math module
-print('The Floor and Ceiling value of 23.56 are: ' + str(math.ceil(23.56)) + ', ' + str(math.floor(23.56)))
+# 01-stair-climb.py
+# Topic: The Stair Climb Problem, Solving Stair Climb with Code
 
-x = 10
-y = -15
-#using copysign function
-print('The value of x after copying the sign from y is: ' + str(math.copysign(x, y)))
+def ways(stairs):
+    if stairs < 0:
+        return 0
+    if stairs == 0:
+        return 1
+    return ways(stairs - 1) + ways(stairs - 2)
 
-#using fabs and gcd function
-print('Absolute value of -96 and 56 are: ' + str(math.fabs(-96)) + ', ' + str(math.fabs(56)))
+input("ways counts every distinct path up n stairs - 1 step or 2 steps at a time.  Press Enter ")
+print("  ways(3) =", ways(3))
+print("  ways(4) =", ways(4))
 
-print('The GCD of 24 and 56 : ' + str(math.gcd(24, 56)))
+n = int(input("Enter number of steps (try 5 or 6): "))
+guess = input("What is ways(" + str(n) + ")? ")
+input("ways(stairs) = ways(stairs-1) + ways(stairs-2)  both branches always combine.  Press Enter ")
+print("  ways(" + str(n) + ") =", ways(n), "  your guess:", guess)
