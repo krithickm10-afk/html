@@ -1,15 +1,16 @@
-# function to check whether 
-# first and last character of words  match
-def match_words(words):
-    ctr = 0
-    lst = []
-    for word in words:
-        if len(word) > 1 and word[0] == word[-1]: 
-            ctr += 1
-            lst.append(word)
+# 01-tower-of-hanoi.py
+# Topic: Tower of Hanoi, Solving Tower of Hanoi with Code
 
-    print("List of words with first and last character same\n", lst)  
-    return ctr
+def hanoi(n):
+    if n == 0:
+        return 0
+    return 2 * hanoi(n - 1) + 1
 
-count = match_words(['abc', 'cfc','xyz', 'aba', '1221'])
-print("NUmber of words having first and last character same:", count)
+input("hanoi(n) counts the minimum moves to shift n disks from peg A to peg C.  Press Enter ")
+print("  hanoi(1) =", hanoi(1))
+print("  hanoi(2) =", hanoi(2))
+
+n = int(input("Enter number of disks (try 3 or 4): "))
+guess = input("What is hanoi(" + str(n) + ")? ")
+input("hanoi(n) = 2 * hanoi(n-1) + 1 move the stack twice plus the big disk once.  Press Enter ")
+print("  hanoi(" + str(n) + ") =", hanoi(n), "  your guess:", guess)
