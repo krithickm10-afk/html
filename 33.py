@@ -1,26 +1,18 @@
-L = [4, 5, 1, 2, 9, 7, 10, 8]
-print("Original List :", L)
+# 02-phone-keypad.py
+# Topic: Phone Keypad, Recursion Trees and How Problems Grow
 
-# variable to store the sum of 
-#the list
-count = 0
+keys = {'2':'abc', '3':'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}
 
-# Finding the sum
-for i in L:
-    count += i
+def count_combos(digits):
+    if len(digits) == 0:
+        return 1
+    return len(keys[digits[0]] * count_combos(digits[1:]))
 
-# divide the Total elements by
-# number of elements
-avg = count/len(L)
+input("count_combos multiplies letter choices at each digit - 3 letters per step.  Press Enter ")
+print("  count_combos('2') =", count_combos('2'))
+print("  count_combos('23') =", count_combos('23'))
 
-print("sum = ", count)
-print("average =", avg)
-
-# Sorting the elements of the list
-L.sort()
-
-# printing the first element
-print("Smallest element is:", L[0])
-
-# printing the last element
-print("Largest element is:", L[-1])
+d = input("Enter digits 2-9 (try'234' or '2345'): ")
+guess = input("What is count_combos('" + d + "')? ")
+input("count_combos = choices at digit 0  x  count_combos of the rest.  Press Enter ")
+print("  count_combos('" + d + "') =", count_combos(d), " your guess:", guess)
