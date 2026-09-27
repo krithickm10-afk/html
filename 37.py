@@ -1,18 +1,24 @@
-# Initialise dictionary 
-test_dict = {'Codingal' : 2, 'is' : 2, 'best' : 2, 'for' : 2, 'Coding' : 1}
+# Function to find the number and print it.
+def print2largest(a, a_size):
 
-# printing original dictionary
-print("The original dictionary : " +  str(test_dict))
+    largest = secondLargest = -2147483648
+    for i in range(a_size):
 
-# Initialise value
-K = 2
+        # If the current element of the array is greater than our current largest number, then replace
+        if (a[i] > largest):
 
-# Using loop
-# Selective key values in dictionary
-res = 0
-for key in test_dict:
-    if test_dict[key] == K:
-        res = res + 1
+            secondLargest = largest
+            largest = a[i]
 
-#printing result 
-print("Frequency of K is : " + str (res))
+
+        # If current element is less than current largest but greater than second largest then replace the number
+        elif (a[i] > secondLargest and a[i] != largest):
+            secondLargest = a[i]
+
+
+    print(secondLargest)
+
+
+a = [1,2,3,4,5,6,7,8,9]
+a_size = len(a)
+print2largest(a, a_size)
