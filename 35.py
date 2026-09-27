@@ -1,18 +1,28 @@
-# function to check whether palindrome or not 
-def palind(r):
-    e = len(r) - 1
-    s = 0
-    while(s<e):
-        if(r[s]!=r[e]):
-            return False
-        s+=1
-        e-=1
-    return True
+# Mean of an array = sum of elements / number of elements 
+def arrayMean(arr, arr_size):
+
+    total_sum = 0
+    for i in range(0, arr_size):
+        total_sum += arr[i]
+
+    return float(total_sum/arr_size)
+
+# Median for a sorted array depends if size is even or odd 
+def arrayMedian(arr, arr_size):
+
+    # Sort array
+    sorted(arr)
+
+    # Return element for even and odd sized array
+    if arr_size % 2 != 0:
+        return float(arr[int(arr_size/2)])
+
+    return float((arr[int((arr_size-1)/2)] + 
+                arr[int(arr_size/2)])/2.0)
 
 
-r = (1,2,3,3,2,1)
+arr = [1,4,5,2,5,8,5,2,6,8]
+arr_size = len(arr)
 
-if(palind(r)):
-    print("The Tuple is Flip-Flop")
-else:
-    print("The Tuple is not Flip-Flop")
+print("Mean =", arrayMean(arr, arr_size))
+print("Median =", arrayMedian(arr, arr_size))
