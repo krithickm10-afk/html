@@ -1,21 +1,15 @@
-# Dictionary of students (id -> details)
-student_data = {
-    "id1": {"name": "Sara",  "class": "V", "subject_integration": "english, math, science"},
-    "id2": {"name": "David", "class": "V", "subject_integration": "english, math, science"},
-    "id3": {"name": "Sara",  "class": "V", "subject_integration": "english, math, science"},  # duplicate of id1
-    "id4": {"name": "Surya", "class": "V", "subject_integration": "english, math, science"},
-}
+# 02-left-rotate.py
+# Topic: Left rotate by 1, Left rotate ny n
 
-result = {}
-seen_keys = []  # using a list instead of set
+def left_rotate(n):
+    arr = [1, 2, 3, 4, 5]
+    n = n % len(arr)
+    return arr[n: ] + arr[:n]
 
-for student_id, details in student_data.items():
-    unique_key = (details["name"], details["class"], details["subject_integration"])
-
-    if unique_key not in seen_keys:
-        seen_keys.append(unique_key)
-        result[student_id] = details
-
-# print output line by line
-for k, v in result.items():
-    print(k, ":", v)
+input("left_rotate(n) shifts [1,2,3,4,5] left by n positions.  Press Enter ")
+print("  left_rotate(1) =", left_rotate(1))
+print("  left_rotate(2) =", left_rotate(2))
+n = int(input("Rotate by how many? (try 3 or 4): "))
+guess = input("What is left_rotate(" + str(n) + ")? ")
+input("slice from index n tp end, then attach the first n elements.  Press Enter ")
+print("  left_rotate(" + str(n) + ") =", left_rotate(n), "  your guess:", guess)
