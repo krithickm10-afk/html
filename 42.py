@@ -1,13 +1,18 @@
-import array as arr
+# 02-total-profit.py
+# Topic: Profit accumulation
 
-# create an array 
-array_num = arr,array('i', [1, 3, 5, 7, 9, 3])
-print("Original array: "+str(array_num))
+def total_profit(n):
+    prices = [1, n, 1, n, 1]
+    profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            profit += prices[i] - prices[i - 1]
+    return profit
 
-# count number of occurences
-print("Number of occurences of the number 3 in the said array: "+str(array_num.count(3)))
-
-# reverse the array 
-array_num.reverse()
-print("Reverse the order of the items:")
-print(str(array_num))
+input("total_profit(n) sums every upswing in prices [1, n, 1, n, 1].  Press Enter ")
+print("  total_profit(4) =", total_profit(4))
+print("  total_profit(5) =", total_profit(5))
+n = int(input("Enter n (try 6 or 7): "))
+guess = input("What is total_profit(" + str(n) + ")? ")
+input("add every positive step - two peaks each contribute n-1.  Press Enter ")
+print("  total_profit(" + str(n) + ") =", total_profit(n), " your guess:", guess)
