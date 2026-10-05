@@ -1,23 +1,19 @@
-# Zip the element of two lists 
-s1 = {2, 3, 1}
-s2 = {'b', 'a', 'c'}
-s3 = list(zip(s1, s2))
-print(s3, "\n")
+# 01-max-ones.py
+# Topic: Binary arrays, Streak counter with reset, Best streak tracker
 
+def max_ones(n):
+    arr = [1]*n + [0] + [1]*n
+    streak = best = 0
+    for x in arr:
+        if x: streak += 1
+        else: streak = 0
+        if streak > best: best = streak 
+        return best
 
-# Zip elements of two lists
-# Print elements one by one, but elements of 2nd list will be in reverse order
-list1 = [10, 20, 30, 40,]
-list2 = [100, 200, 300, 400]
-
-for x, y in zip (list1,list2[::-1]):
-    print(x, y)
-
-
-# Zip into dictionary 
-stocks = ['reliance', 'infoys', 'tcs']
-prices = [2175, 1127, 2750]
-
-new_dict = {stocks: prices for stocks,
-            prices in zip(stocks, prices)}
-print('\n{}'.format(new_dict))
+input("max_ones(n) finds the longest run of 1s in [1..1, 0, 1..1].  Press Enter ")
+print("  max_ones(3) =", max_ones(3))
+print("  max_ones(4) =", max_ones(4))
+n = int(input("Enter n (try 5 or 6): "))
+guess = input("What is max_ones(" + str(n) + ")? ")
+input("streak resets to 0 on each 0 - best keeps the highest streak seen.  Press Enter ")
+print("  max_ones(" + str(n) + ") =", max_ones(n), " your guess:", guess)
