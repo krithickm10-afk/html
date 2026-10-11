@@ -1,21 +1,19 @@
-# create class
-class IOString():
+# 03-max-after.py
+# Topic: The Drag of Negatives, Running Sum with Reset, Kadane's Algorithm
 
-    # constructor to set default value
-    def __init__(self):
-        self.str1 = "" 
+def max_after(n):
+    arr = [-n] + [1]*n
+    current = best = arr[0]
+    for x in arr[1:]:
+        if current < 0: current = x
+        else: current = current + x
+        if current > best: best = current
+    return best
 
-    # function to get input from user
-    def get_String(self):
-        self.str1 = input("Enter String : ")
-
-    # function to print the string in upper case 
-    def print_String(self):
-        print("Result is :", self.str1.upper())
-
-# Object creation 
-str1 = IOString()
-
-# Call functions
-str1.get_String()
-str1.print_String()
+input("max_after(n) finds the max subarray sum in [-n, 1, 1, ..., 1].  Press Enter ")
+print("  max_after(3) =", max_after(3))
+print("  max_after(4) =", max_after(4))
+n = int(input("Enter n (try 5 or 6): "))
+guess = input("What is max_after(" + str(n) + ")? ")
+input("big negative resets - then n ones add up to n.  Press Enter ")
+print("  max_after(" + str(n) + ") =", max_after(n), "  your guess:", guess)
