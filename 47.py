@@ -1,16 +1,19 @@
-# create class 
-class Vehicle:
+# 01-max-mid.py
+# Topic: Subarrays, Running Sum with Reset, Max-So-Far Tracker, Kadane's Algorithm
 
-    # create init method 
-    def __init__(self, max_speed, mileage):
+def max_mid(n):
+    arr = [-1, n, -1]
+    current = best = arr[0]
+    for x in arr[1: ]:
+        if current < 0: current = x
+        else: current = current + x
+        if current > best: best = current
+    return best
 
-        # bind the arguments 
-        self.max_speed = max_speed
-        self.mileage = mileage
-
-# Object creation 
-modelX = Vehicle(240, 18)
-
-# access the variables inside init method 
-print("Model Max Speed:",modelX.max_speed)
-print("Model Mileage:", modelX.mileage  )
+input("max_mid(n) finds the max subarray in [-1, n, -1].  Press Enter ")
+print(" max_mid(3) =", max_mid(3))
+print(" max_mid(4) =", max_mid(4))
+n = int(input("Enter n (try 5 or 6): "))
+guess = input("What is max_mid(" + str(n) + ")? ")
+input("negative at start resets - best locks in the peak value n.  Press Enter ")
+print("max_mid(" + str(n) + ") =", max_mid(n), "  your guess:", guess)
