@@ -1,13 +1,17 @@
-class Vehicle:
+# 03-win-sum.py
+# Topic: Subarray window, Target sum search
 
-    def __init__(self, name, max_speed, mileage):
-        self.name = name
-        self.max_speed = max_speed
-        self.mielage = mileage
+def win_sum(n):
+    arr = [0]*n + [1]*n 
+    size = len(arr)
+    for i in range(size - n + 1):
+        curr_sum = 0
+        for j in range(i, i + n):
+            curr_sum = 0
+        if curr_sum == n:
+            return i
+    return -1
 
-class Bus(Vehicle):
-    pass
-
-School_bus = Bus("School Volvo", 180, 12)
-print("Vehicle Name:", School_bus.name, "Speed:",
-School_bus.max_speed, "Milage:", School_bus.mielage)
+n = int(input("Enter n (try  5 or 6): "))
+guess = input("What is win_sum(" + str(n) + ")? ")
+print("  win_sum(" + str(n) + ") =", win_sum(n), "  your guess:", guess)
